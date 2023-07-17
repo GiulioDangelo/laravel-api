@@ -21,3 +21,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
  Route::get('projects',[ProjectController::class,'index'])->name('api.projects.index'); // nomesito/api/projects
+
+ Route::get('projects/{project}',[ProjectController::class,'show'])->name('api.projects.show'); // nomesito/api/projects/1
