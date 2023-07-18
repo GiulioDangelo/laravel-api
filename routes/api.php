@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\api\ProjectController;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -25,3 +26,6 @@ use Illuminate\Support\Facades\Route;
  Route::get('projects/random',[ProjectController::class,'random'])->name('api.projects.random'); // nomesito/api/projects/random
 
  Route::get('projects/{project}',[ProjectController::class,'show'])->name('api.projects.show'); // nomesito/api/projects/1
+
+ 
+ Route::get('types',[TypeController::class,'index'])->name('api.types.index'); // nomesito/api/types

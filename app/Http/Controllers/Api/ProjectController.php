@@ -15,10 +15,11 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        // request()->query('q','');
-        // $projects = Project::where('title', 'like', '%' . $request->query('q') . '%')->paginate(10);
+        $searchStr = $request->query('q', '');
 
-        $projects = Project::paginate(10);
+        $projects = Project::with('type', 'technologies')->where('title', 'LIKE', "%{$searchStr}%")->paginate(10);
+
+        // $projects = Project::paginate(10);
 
         return response()->json($projects);
     }
