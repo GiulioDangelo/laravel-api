@@ -13,8 +13,11 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // request()->query('q','');
+        // $projects = Project::where('title', 'like', '%' . $request->query('q') . '%')->paginate(10);
+
         $projects = Project::paginate(10);
 
         return response()->json($projects);
@@ -30,5 +33,11 @@ class ProjectController extends Controller
     {
         $projects = Project::where('slug', $slug)->firstOrFail();
         return response()->json($projects);
+    }
+
+    public function random(){
+        $project = Project::inRandomOrder()->limit(9)->get();
+
+        return response()->json($project);
     }
 }
