@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\Admin\TypeController;
-use App\Http\Controllers\api\ProjectController;
+
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\LeadController;
+use App\Http\Controllers\Api\TypeController;
+use App\Http\Controllers\api\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,5 @@ use Illuminate\Support\Facades\Route;
 
  
  Route::get('types',[TypeController::class,'index'])->name('api.types.index'); // nomesito/api/types
+
+ Route::post('leads/',[LeadController::class,'store'])->name('api.leads.store'); // nomesito/api/leads
